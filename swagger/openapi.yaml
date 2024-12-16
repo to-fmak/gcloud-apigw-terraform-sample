@@ -1,0 +1,27 @@
+swagger: "2.0"
+info:
+  title: "Sample API"
+  description: "This is a sample API that returns a plain text response."
+  version: "1.0.0"
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "x-api-key"
+    in: "header"
+paths:
+  /hello:
+    get:
+      summary: "Say Hello in Text"
+      operationId: "sayHelloInText"
+      security:
+        - api_key: []
+      produces:
+        - text/plain
+      responses:
+        200:
+          description: "A successful response returning plain text"
+          schema:
+            type: string
+            example: "Hello, world!"
+      x-google-backend:
+        address: https://your-backend-service-url
